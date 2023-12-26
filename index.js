@@ -11,21 +11,27 @@ app.get("/", (req, res) => {
   res.send("Express on Vercel");
 });
 
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(
+      "mongodb+srv://alejinius:mikevallely@cluster0.nej8uwa.mongodb.net/?retryWrites=true&w=majority",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
+};
+
+connectToDatabase();
+
 // Initialize server
 app.listen(5555, () => {
   console.log("Running on port 5555.");
 });
-
-mongoose
-  .connect(
-    "mongodb+srv://alejinius:mikevallely@cluster0.nej8uwa.mongodb.net/?retryWrites=true&w=majority"
-  )
-  .then(data => {
-    console.log("connected");
-  })
-  .catch(rtt => {
-    console.log(rtt);
-  });
 
 module.exports = app;
 // module.exports.handler = serverless(app);
