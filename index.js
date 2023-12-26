@@ -21,7 +21,7 @@ app.listen(process.env.PORT || 5555, () => {
 
 // get all products from db
 app.get("/products", async (request, response) => {
-  res.send("prodotto");
+  response.send("prodotto");
   // try {
   //   const products = await Product.find({});
   //   return response.status(200).send({
