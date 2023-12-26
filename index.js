@@ -1,37 +1,11 @@
 // const searchRoute = require("./src/routes/searchRoute.js");
-const { MongoClient } = require("mongodb");
+const { mongoDBURL } = require("./config.js");
+const mongoose = require("mongoose");
 // Add Express
 const express = require("express");
 
 // Initialize Express
 const app = express();
-
-const mongoURI =
-  "mongodb+srv://alejinius:mikevallely@cluster0.nej8uwa.mongodb.net/?retryWrites=true&w=majority";
-
-const client = new MongoClient(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// Connect to MongoDB
-client.connect(err => {
-  if (err) {
-    console.error("Failed to connect to MongoDB:", err);
-  } else {
-    console.log("Connected to MongoDB");
-
-    // You can add your Express routes and other logic here
-
-    // Close the MongoDB connection when the app is closed
-    process.on("SIGINT", () => {
-      client.close(() => {
-        console.log("MongoDB connection closed");
-        process.exit(0);
-      });
-    });
-  }
-});
 
 // Create GET request
 app.get("/", (req, res) => {
@@ -42,6 +16,17 @@ app.get("/", (req, res) => {
 app.listen(5555, () => {
   console.log("Running on port 5555.");
 });
+
+mongoose
+  .connect(
+    "mongodb+srv://vercel-admin-user:mikevallely@cluster0.nej8uwa.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then(data => {
+    console.log("connected");
+  })
+  .catch(rtt => {
+    console.log(rtt);
+  });
 
 module.exports = app;
 // module.exports.handler = serverless(app);
