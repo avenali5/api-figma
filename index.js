@@ -20,33 +20,34 @@ app.listen(process.env.PORT || 5555, () => {
 });
 
 // get all products from db
-app.get("/", async (request, response) => {
-  try {
-    const products = await Product.find({});
-    return response.status(200).send({
-      count: products.length,
-      data: products,
-    });
-  } catch (err) {
-    console.log(err);
-    response.status(500).send({ message: err.message });
-  }
+app.get("/products", async (request, response) => {
+  res.send("prodotto");
+  // try {
+  //   const products = await Product.find({});
+  //   return response.status(200).send({
+  //     count: products.length,
+  //     data: products,
+  //   });
+  // } catch (err) {
+  //   console.log(err);
+  //   response.status(500).send({ message: err.message });
+  // }
 });
 
 // get Product by id from db
-app.get("/:id", async (request, response) => {
-  try {
-    const { id } = request.params;
+// app.get("/:id", async (request, response) => {
+//   try {
+//     const { id } = request.params;
 
-    // Use findById with the converted objectId
-    const product = await Product.findById(id);
+//     // Use findById with the converted objectId
+//     const product = await Product.findById(id);
 
-    return response.status(200).send(product);
-  } catch (err) {
-    console.log(err);
-    response.status(500).send({ message: err.message });
-  }
-});
+//     return response.status(200).send(product);
+//   } catch (err) {
+//     console.log(err);
+//     response.status(500).send({ message: err.message });
+//   }
+// });
 
 // app.use("/api/search", searchRoute);
 
