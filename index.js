@@ -60,5 +60,5 @@ app.listen(process.env.PORT || 5555, () => {
 //     console.log(rtt);
 //   });
 
-// module.exports = app;
-module.exports.handler = serverless(app);
+module.exports = app;
+// module.exports.handler = serverless(app);
