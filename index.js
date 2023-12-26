@@ -1,8 +1,6 @@
 const Product = require("./src/models/productModel.js");
 // const searchRoute = require("./src/routes/searchRoute.js");
 const serverless = require("serverless-http");
-const mongoose = require("mongoose");
-const { mongoDBURL } = require("./config.js");
 // Add Express
 const express = require("express");
 
