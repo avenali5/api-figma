@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const connectDB = require("./connectMongo");
 require("dotenv").config();
-connectDB();
+// connectDB();
 
 // Initialize Express
 const app = express();
