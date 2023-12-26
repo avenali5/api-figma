@@ -52,7 +52,9 @@ app.listen(process.env.PORT || 5555, () => {
 // app.use("/api/search", searchRoute);
 
 mongoose
-  .connect(mongoDBURL)
+  .connect(
+    "mongodb+srv://alejinius:mikevallely@cluster0.nej8uwa.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(data => {
     console.log("connected");
   })
