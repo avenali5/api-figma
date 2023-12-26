@@ -20,19 +20,19 @@ app.listen(process.env.PORT || 5555, () => {
 });
 
 // get all products from db
-app.get("/products", async (request, response) => {
-  response.send("prodotto");
-  // try {
-  //   const products = await Product.find({});
-  //   return response.status(200).send({
-  //     count: products.length,
-  //     data: products,
-  //   });
-  // } catch (err) {
-  //   console.log(err);
-  //   response.status(500).send({ message: err.message });
-  // }
-});
+// app.get("/products", async (request, response) => {
+// response.send("prodotto");
+// try {
+//   const products = await Product.find({});
+//   return response.status(200).send({
+//     count: products.length,
+//     data: products,
+//   });
+// } catch (err) {
+//   console.log(err);
+//   response.status(500).send({ message: err.message });
+// }
+// });
 
 // get Product by id from db
 // app.get("/:id", async (request, response) => {
