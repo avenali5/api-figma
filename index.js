@@ -1,5 +1,6 @@
 const productsRoute = require("./src/routes/productsRoute.js");
 const searchRoute = require("./src/routes/searchRoute.js");
+const serverless = require("serverless-http");
 const mongoose = require("mongoose");
 const { mongoDBURL } = require("./config.js");
 // Add Express
@@ -31,3 +32,4 @@ mongoose
   });
 
 module.exports = app;
+module.exports.handler = serverless(app);
