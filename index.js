@@ -18,9 +18,7 @@ app.listen(5555, () => {
 });
 
 mongoose
-  .connect(
-    "mongodb+srv://vercel-admin-user:mikevallely@cluster0.nej8uwa.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(mongoDBURL)
   .then(data => {
     console.log("connected");
   })
