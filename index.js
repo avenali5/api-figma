@@ -1,6 +1,5 @@
-// const searchRoute = require("./src/routes/searchRoute.js");
-const { mongoDBURL } = require("./config.js");
-const mongoose = require("mongoose");
+const route = require("./src/routes/productsRoute.js");
+const searchRoute = require("./src/routes/searchRoute.js");
 // Add Express
 const express = require("express");
 const connectDB = require("./connectMongo");
@@ -14,6 +13,9 @@ const app = express();
 app.get("/", (req, res) => {
   res.send("Express on Vercel");
 });
+
+app.use("/api/products", route);
+app.use("/api/search", searchRoute);
 
 // Initialize server
 app.listen(5555, () => {
