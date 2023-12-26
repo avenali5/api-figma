@@ -22,14 +22,14 @@ app.listen(process.env.PORT || 5555, () => {
 // app.use("/api/products", productsRoute);
 // app.use("/api/search", searchRoute);
 
-// mongoose
-//   .connect(mongoDBURL)
-//   .then(data => {
-//     console.log("connected");
-//   })
-//   .catch(rtt => {
-//     console.log(rtt);
-//   });
+mongoose
+  .connect(mongoDBURL)
+  .then(data => {
+    console.log("connected");
+  })
+  .catch(rtt => {
+    console.log(rtt);
+  });
 
 // module.exports = app;
 module.exports.handler = serverless(app);
